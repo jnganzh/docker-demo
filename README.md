@@ -1,17 +1,26 @@
 # docker-demo
 
-ssh keygen -t rsa
+Simple functions that sums all the numbers from 0 to n
 
-python3 -m venv ~/.venv
+## Pull and run the image from dockerhub
 
-source ~/.venv/bin/activate
+docker run -it jarylngan/docker-demo python app.py --sum 5
+
+## To build the image and push to dockerhub from scratch
+
+### Remove all images from docker image ls
 
 docker rmi -f $(docker images -a -q)
+
+### Git clone this repo
+
+git clone <repo>
+  
+### Build image (use your own account name and path)
 
 docker build --tag=jarylngan/docker-demo:latest .
 
+### Push Image to dockerhub
 docker push jarylngan/docker-demo:latest
 
-docker rmi -f $(docker images -a -q)
 
-docker run -it jarylngan/docker-demo python app.py --sum 5
